@@ -13,7 +13,7 @@ public class DBConnect {
     private static final String PASSWORD = "cong12345";
     private static final String SERVER = "localhost";
     private static final String PORT = "1433";
-    private static final String DATABASE_NAME = "java";
+    private static final String DATABASE_NAME = "quanlynhanvien";
     private static final boolean USING_SSL = true;
 
     private static String CONNECT_STRING;
