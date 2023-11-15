@@ -14,7 +14,7 @@ public class NhanVienService {
         List<NhanVien> listNhanvien = new ArrayList<>();
         try {
             String sql = "Select * from Nhanvien";
-            Connection con = ConnectDB.getConnection();
+            Connection con = DBConnect.getConnection();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
@@ -26,7 +26,7 @@ public class NhanVienService {
                 int luong = rs.getInt(6);
                 String email = rs.getString(7);
                 String phone = rs.getString(8);
-                NhanVien nv = new NhanVien(id,ma, ten, gioitinh, tuoi, luong, email, phone);
+                NhanVien nv = new NhanVien(id, ma, ten, gioitinh, tuoi, luong, email, phone);
                 listNhanvien.add(nv);
             }
             con.close();
@@ -39,7 +39,7 @@ public class NhanVienService {
 
     public static void Add(String ma, String ten, String gioitinh, int tuoi, int luong, String email, String phone) {
         try {
-            Connection con = ConnectDB.getConnection();
+            Connection con = DBConnect.getConnection();
             String sql = "Insert into nhanvien values(?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, ma);
